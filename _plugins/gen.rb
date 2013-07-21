@@ -14,6 +14,7 @@ module Jekyll
 
 	if(!File.exist?("_discourse/" + context.environments.first["page"]["title"].gsub('/','slash') + ".pstore"))
 		puts "We're making a new post for title:" + context.environments.first["page"]["title"].gsub('/','slash')
+		sleep 3.2
 		@result = HTTParty.post(Jekyll.configuration({})['discourse_api_url'] + "/posts", 
 	        :body => { :api_key => Jekyll.configuration({})['discourse_api_key'], 
             		   :api_username => Jekyll.configuration({})['discourse_api_username'], 
